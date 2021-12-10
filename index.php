@@ -15,28 +15,26 @@ else {
 	$Email = $_POST["u"];
 	$Password=$_POST["p"];
 
-	$stmt = $conn -> prepare("select * from login where Email=? and Password=?");
+    
+	$stmt = $conn -> prepare("SELECT * FROM `login` WHERE `Email`=? AND `Password`=? ");
 	$stmt -> bind_param("ss",$Email,$Password);
 	
+    $user = null;
+    $stmt->execute();
 
+    $result = $stmt->get_result();
 
-$user = null;
+    if($result -> fetch_assoc()) {
+        header( 'Location: ./php/home.php');
+        
+    }
+    else {
+        $error = " Please Check your credentials and Try again";
+    }
 
-$stmt->execute();
-
-$result = $stmt->get_result();
-
-if($result -> fetch_all(MYSQLI_ASSOC)) {
-	header( 'Location: home.php');
-	
-}
-else {
-	$error = " Please Check your credentials and Try again!!";
-}
-
-	
-}
-}
+        
+    }
+    }
 ?>
 
 
@@ -51,15 +49,15 @@ else {
 </head>
 <body login-body>
     <div class="login">
-        <h1>Login</h1>
-        <form method="post" name="form" id="form" action="login.php">
+        <h1>Onevoice Login</h1>
+        <form method="post" name="form" id="form" action="index.php">
             <input type="text" name="u" placeholder="Username" required="required" />
             <input type="password" name="p" placeholder="Password" required="required" />
             <button name="submit" type="submit" class="btn btn-primary btn-block btn-large">Login</button>
         </form>
     </div>
     <?php if ($error){ ?>
-        <p style="color:red;margin:500px;margin-left:570px; " ><?php echo $error ?> </p> 
+        <p style="color:white;margin:500px;margin-left:570px; " ><?php echo $error ?> </p> 
 
     <?php }?>
 

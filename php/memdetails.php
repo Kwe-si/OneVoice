@@ -57,8 +57,7 @@ function listing($conn){
     $data=mysqli_fetch_all($mem_details,MYSQLI_ASSOC);
     echo mysqli_error($conn);
     return $data;
-}
-    $data=listing($conn);       //data stores result of the query
+}      //data stores result of the query
 
 //implementing user search
 $searchresult = [];
@@ -81,9 +80,10 @@ function selection($theword, $conn){
     return $searchquery; 
 }
 
-//checking if okay button has been pressed
+//updating the details of members
+//checking if okay has been pressed
 
-if(isset($_POST['okaybutton'])){
+if(isset($_POST['Okaybutton'])){
     $firstname=$_POST['fname'];
     $middlename=$_POST['Mname'];
     $lastname=$_POST['lname'];
@@ -102,16 +102,18 @@ if(isset($_POST['okaybutton'])){
     $devID=$_POST['devID'];
     $deptnum=$_POST['deptNum'];
 
+    echo $memberID;
+
     //updating different tables
-    $updateperson = "UPDATE `person` set `fname`= '$firstname', `middlename` = '$middlename', `lname` = '$lastname', `gender` = '$gender', `DOB` = '$DOB', `contact` = '$contact',`nationality` = '$nationality', `residential_address` = '$address' where `personID`=$memberID";
+    $updateperson = "UPDATE `person` set `fname`= '$firstname', `middlename` = '$middlename', `lname` = '$lastname', `gender` = '$gender', `DOB` = '$DOB', `contact` = '$contact',`nationality` = '$nationality', `residential_address` = '$address' where `personID`='$memberID'";
     $personinfoupdate = mysqli_query($conn,$updateperson);
     if($personinfoupdate){
         echo "success";
     }else{
-        echo "person error".mysqli_error($conn);
+        echo "person error".mysqli_error($conn)."<br />";
     }
 
-    $updatedept = "UPDATE `department` set `deptName`= '$department' where `deptNum`=$deptnum ";
+    $updatedept = "UPDATE `department` set `deptName`= '$department' where `deptNum`='$deptnum'";
     $deptinfoupdate = mysqli_query($conn,$updatedept);
     if($deptinfoupdate){
         echo "success";
@@ -119,7 +121,7 @@ if(isset($_POST['okaybutton'])){
         echo "department error".mysqli_error($conn);
     }
 
-    $updateproject = "UPDATE `developmentproject` set `projectName`= '$project' where `devID`=$devID ";
+    $updateproject = "UPDATE `developmentproject` set `projectName`= '$project' where `devID`='$devID'";
     $projectinfoupdate = mysqli_query($conn,$updateproject);
     if($projectinfoupdate){
         echo "success";
@@ -127,7 +129,7 @@ if(isset($_POST['okaybutton'])){
         echo "dev project error".mysqli_error($conn);
     }
 
-    $updatedevprojectmem = "UPDATE `devprojectmember` set `projectrole`= '$project_role' where `devID`=$devID";
+    $updatedevprojectmem = "UPDATE `devprojectmember` set `projectrole`= '$project_role' where `devID`='$devID'";
     $devprojectinfoupdate = mysqli_query($conn,$updatedevprojectmem);
     if($devprojectinfoupdate){
         echo "success";
@@ -135,7 +137,7 @@ if(isset($_POST['okaybutton'])){
         echo "dev project member error".mysqli_error($conn);
     }
 
-    $updateevent = "UPDATE `eventss` set `eventName`= '$event' where `eventID`=$eventID ";
+    $updateevent = "UPDATE `eventss` set `eventName`= '$event' where `eventID`='$eventID'";
     $eventinfoupdate = mysqli_query($conn,$updateevent);
     if($eventinfoupdate){
         echo "success";
@@ -143,7 +145,7 @@ if(isset($_POST['okaybutton'])){
         echo "update event error".mysqli_error($conn);
     }
 
-    $updateevmember = "UPDATE `eventmember` set `eventrole`= '$event_role' where `eventID`=$eventID";
+    $updateevmember = "UPDATE `eventmember` set `eventrole`= '$event_role' where `eventID`='$eventID'";
     $evmemberinfoupdate = mysqli_query($conn,$updateevmember);
     if($evmemberinfoupdate){
         echo "success";
@@ -152,6 +154,8 @@ if(isset($_POST['okaybutton'])){
     }
     
 }
+
+$data=listing($conn);
 
 ?>
 

@@ -25,6 +25,7 @@
     left:35%;
     transform:translateX(-50%);
     background-image: url(../images/mem.png);
+    background-color: #ec407a;
     }
 
 .sc_commcard2{
@@ -32,5 +33,6 @@
     right:15%;
     transform:translateX(-50%);
     background-image: url(../images/Reps.png);
+    background-color: #ec407a;
 }
 

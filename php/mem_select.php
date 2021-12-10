@@ -5,7 +5,7 @@ $mid = $_POST['ID'];
 
 
 function listing($conn,$mid){
-    $mem_details=mysqli_query($conn, "SELECT P.personID, M.memID, Ev.eventID, DP.devID, P.fname, P.middlename, P.lname, P.contact, P.nationality, P.residential_address, P.DOB, D.deptName, DP.projectName,
+    $mem_details=mysqli_query($conn, "SELECT P.personID, M.memID, Ev.eventID, DP.devID, P.fname, P.middlename, P.lname, P.contact, P.nationality, P.residential_address, P.DOB, D.deptName, D.deptNum, DP.projectName,
     DPM.projectrole, Ev.eventName, Evm.eventrole,
     case
     when D.deptname = 'Database' then 'Kweku Asante'

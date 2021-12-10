@@ -44,9 +44,12 @@ const updateForm = (formData) => {
     popupForm.address.value = formData["residential_address"];
     popupForm.department.value = formData["deptName"];
     popupForm.project.value = formData["projectName"] ?? "";
-    popupForm.projectro.value = formData["projectrole"]
-    popupForm.event.value = formData["eventName"]
-    popupForm.eventro.value = formData["eventrole"]
-    popupForm.gender.value = formData["gender"];
-    
+    popupForm.projectro.value = formData["projectrole"];
+    popupForm.event.value = formData["eventName"];
+    popupForm.eventro.value = formData["eventrole"];
+    popupForm.memID.value = formData["memID"];
+    popupForm.eventID.value = formData["eventID"];
+    popupForm.deptNum.value = formData["deptNum"];
+    popupForm.personID.value = formData["PersonID"];
+    popupForm.devID.value = formData["devID"];
 }
