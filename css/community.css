@@ -1,0 +1,36 @@
+.maincommunity{
+    padding: 200px 0;
+    position: relative;
+    }
+
+.small_circlecomm{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position:absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #fff;
+    transition: 0.5s all;
+}
+
+.small_circlecomm:hover {
+    transform: translateX(-50%) scale(1.4);
+    border: 2px ;
+}
+
+.sc_commcard1{
+    top :200px;
+    left:35%;
+    transform:translateX(-50%);
+    background-image: url(../images/mem.png);
+    }
+
+.sc_commcard2{
+    top :200px;
+    right:15%;
+    transform:translateX(-50%);
+    background-image: url(../images/Reps.png);
+}
+

@@ -1,0 +1,46 @@
+body{
+    background-color:white;
+    position:relative;
+}
+
+.popup{
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 90000;
+    overflow-y:scroll;
+    padding: 15px;
+    visibility: hidden;
+}
+
+.popup-show{
+    visibility:visible;
+}
+
+.back-button{
+    background-color: #fce4ec;
+    padding:9px;
+}
+
+.submit-button{
+    background-color: #ec407a;
+    border:0;
+    border: radius 9px;
+    padding:5px;
+    color: white;
+    
+}
+
+.submit-button:hover {
+    text-decoration: underline;
+}
+
+.edit-color{
+    background-color: #ec407a;
+    color: #fff;
+}
+
+.card-color{
+    background-color: #ec407a;
+}
+

@@ -1,0 +1,20 @@
+.mem{
+    margin-top:100px;
+}
+
+.mem-card{
+    background-color: #ec407a;
+    color:white;
+}
+
+.add-button{
+    background-color: #ec407a;
+    color:white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-button:hover{
+    text-decoration:underline;
+}
+
