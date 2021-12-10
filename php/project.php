@@ -41,6 +41,8 @@
     <div class="container mem">
         <div class="row">
             <!-- card for list of projects -->
+
+             <!-- creating card for Navrongo Project-->
             <div class="col-sm-4">
                 <div class="card">
                 <div class="card-body">

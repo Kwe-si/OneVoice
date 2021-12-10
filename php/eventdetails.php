@@ -6,7 +6,6 @@ require __DIR__ ."/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -15,8 +14,7 @@ $theID = "";
 function delete($theID, $conn){
     // delete event
       $del="delete from `eventss` where `eventID`='$theID'";
-      $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
+      $q=mysqli_query($conn,$del); 
 }
 
 //function to select and display attendance status of members
@@ -27,7 +25,6 @@ function listing($conn){
     Es.eventID
     Inner Join Sponsor as S on S.spID=Es.spID");
     $data=mysqli_fetch_all($event_details,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }
     $data=listing($conn);       //data stores result of the query
@@ -48,8 +45,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT ev.eventName from `eventss` as ev where ev.eventName LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2);  
     return $searchquery; 
 }
 
@@ -109,7 +105,7 @@ function selection($theword, $conn){
                 <th>Payment Date</th>
             </tr>
 
-            <!-- looping through rows with results of the query to display the status of dues of members -->
+            <!-- looping through rows with results of the query to disply the details of events -->
 
             <?php foreach($data as $q){ ?>
                 <tr>

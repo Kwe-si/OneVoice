@@ -31,6 +31,9 @@
             <li class="nav-item">
             <a class="nav-link active barsbars">Contact</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active barsbars" href="logout.php">Logout</a>
+            </li>
         </ul>
         </div>
     </div>
@@ -41,7 +44,7 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- card for community-->
         <div class="col">
-            <div class="card h-90">
+            <div class="card h-90 card-hover">
             <a href="community.php"><img src="../images/community.png" height="380px" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Community</h5>
@@ -51,7 +54,7 @@
         </div>
         <!-- card for projects-->
         <div class="col">
-            <div class="card h-90">
+            <div class="card h-90 card-hover">
             <a href="project.php"><img src="../images/hand.png" height="380px" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Projects</h5>
@@ -61,7 +64,7 @@
         </div>
         <!-- card for events-->
         <div class="col">
-            <div class="card h-90">
+            <div class="card h-90 card-hover">
             <a href="event.php"><img src="../images/event.png" height="380px" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Events</h5>

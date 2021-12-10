@@ -27,7 +27,6 @@ if(isset($_POST['SubmitButton'])){
     $person_id=null; 
     if($personquery){
         $person_id=mysqli_insert_id($conn);
-        echo "success";
     }
 
     //inserting into the department table
@@ -40,9 +39,6 @@ if(isset($_POST['SubmitButton'])){
     $dept_id=null;
     if($deptquery){
         $dept_id=mysqli_insert_id($conn);
-        echo "success";
-    }else{
-        echo "dept error".mysqli_error($conn);
     }
 
     //inserting into the departmentperson table
@@ -59,9 +55,6 @@ if(isset($_POST['SubmitButton'])){
     $mem_id=null;
     if($memquery){
         $mem_id=mysqli_insert_id($conn);
-        echo "success";
-    }else{
-        echo "member error".mysqli_error($conn);
     }
 
     //inserting into the development project table
@@ -74,9 +67,6 @@ if(isset($_POST['SubmitButton'])){
     $project_id=null;
     if($projectquery){
         $project_id=mysqli_insert_id($conn);
-        echo "success";
-    }else{
-        echo "project error".mysqli_error($conn);
     }
 
     //inserting into the development project member table
@@ -85,9 +75,6 @@ if(isset($_POST['SubmitButton'])){
     $insertprojectmem = $insertprojectmem.$insertprojectmemcont;
     $projectmemquery= mysqli_query($conn,$insertprojectmem);
     if($projectmemquery){
-        echo "success";
-    }else{
-        echo "projectmem".mysqli_error($conn);
     }
 
     //inserting into the events project table
@@ -99,9 +86,6 @@ if(isset($_POST['SubmitButton'])){
     $event_id=null;
     if($eventquery){
         $event_id=mysqli_insert_id($conn);
-        echo "success";
-    }else{
-        echo "event error".mysqli_error($conn);
     }
 
     //inserting into the event member table

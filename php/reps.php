@@ -40,7 +40,7 @@
     <!-- creating cards -->
     <div class="container mem">
         <div class="row">
-            <!-- card for list of members -->
+            <!-- card for reps -->
             <div class="col-sm-4">
                 <div class="card">
                 <div class="card-body">

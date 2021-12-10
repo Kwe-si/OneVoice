@@ -6,7 +6,6 @@ require __DIR__ ."/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -16,7 +15,6 @@ function delete($theID, $conn){
     // delete event
       $del="delete from `developmentproject` where `devID`='$theID'";
       $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
 }
 
 //function to select and display attendance status of members
@@ -26,7 +24,6 @@ function listing($conn){
     from DevelopmentProject as DP Inner Join ProjectSponsor as PS on DP.devID = PS.devID
     Inner Join Sponsor as S on S.spID=PS.spID");
     $data=mysqli_fetch_all($project_details,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }
     $data=listing($conn);       //data stores result of the query
@@ -47,8 +44,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT pj.projectName from `developmentproject` as pj where pj.projectName LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2); 
     return $searchquery; 
 }
 

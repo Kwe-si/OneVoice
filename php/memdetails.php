@@ -6,7 +6,6 @@ require __DIR__ ."/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -15,8 +14,7 @@ $theID = "";
 function delete($theID, $conn){
     // delete from dues in the database 
       $del="delete from `members` where `memID`='$theID'";
-      $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
+      $q=mysqli_query($conn,$del); 
 }
 
 //function to select and display attendance status of members
@@ -55,7 +53,6 @@ function listing($conn){
     Inner Join DevProjectMember as DPM on DPM.personID=M.memID
     Inner Join DevelopmentProject as DP on DP.devID=DPM.devID");
     $data=mysqli_fetch_all($mem_details,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }      //data stores result of the query
 
@@ -75,8 +72,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT concat(P.fname, ' ', P.middlename, ' ', P.lname) as 'Fullname' from `person` as p where concat(P.fname, ' ', P.middlename, ' ', P.lname) LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2);  
     return $searchquery; 
 }
 
@@ -102,56 +98,26 @@ if(isset($_POST['Okaybutton'])){
     $devID=$_POST['devID'];
     $deptnum=$_POST['deptNum'];
 
-    echo $memberID;
+    
 
     //updating different tables
     $updateperson = "UPDATE `person` set `fname`= '$firstname', `middlename` = '$middlename', `lname` = '$lastname', `gender` = '$gender', `DOB` = '$DOB', `contact` = '$contact',`nationality` = '$nationality', `residential_address` = '$address' where `personID`='$memberID'";
     $personinfoupdate = mysqli_query($conn,$updateperson);
-    if($personinfoupdate){
-        echo "success";
-    }else{
-        echo "person error".mysqli_error($conn)."<br />";
-    }
 
     $updatedept = "UPDATE `department` set `deptName`= '$department' where `deptNum`='$deptnum'";
     $deptinfoupdate = mysqli_query($conn,$updatedept);
-    if($deptinfoupdate){
-        echo "success";
-    }else{
-        echo "department error".mysqli_error($conn);
-    }
 
     $updateproject = "UPDATE `developmentproject` set `projectName`= '$project' where `devID`='$devID'";
     $projectinfoupdate = mysqli_query($conn,$updateproject);
-    if($projectinfoupdate){
-        echo "success";
-    }else{
-        echo "dev project error".mysqli_error($conn);
-    }
 
     $updatedevprojectmem = "UPDATE `devprojectmember` set `projectrole`= '$project_role' where `devID`='$devID'";
     $devprojectinfoupdate = mysqli_query($conn,$updatedevprojectmem);
-    if($devprojectinfoupdate){
-        echo "success";
-    }else{
-        echo "dev project member error".mysqli_error($conn);
-    }
 
     $updateevent = "UPDATE `eventss` set `eventName`= '$event' where `eventID`='$eventID'";
     $eventinfoupdate = mysqli_query($conn,$updateevent);
-    if($eventinfoupdate){
-        echo "success";
-    }else{
-        echo "update event error".mysqli_error($conn);
-    }
 
     $updateevmember = "UPDATE `eventmember` set `eventrole`= '$event_role' where `eventID`='$eventID'";
     $evmemberinfoupdate = mysqli_query($conn,$updateevmember);
-    if($evmemberinfoupdate){
-        echo "success";
-    }else{
-        echo "event member error".mysqli_error($conn);
-    }
     
 }
 
@@ -293,13 +259,14 @@ $data=listing($conn);
             <input type="hidden" name="devID">
             <input type="hidden" name="personID">
             
-            
-            <center>
-                <div class=" col-2 d-flex">
-                    <input class="btn edit-color me-2" type="submit"  name="Okaybutton" value="Okay">
-                    <button class="ms-2 btn btn-danger" onClick="closePopup(event)">Cancel</button>
-                </div>
-            </center>
+            <p>
+                <center>
+                    <div class=" col-2 d-flex">
+                        <input class="btn edit-color me-2" type="submit"  name="Okaybutton" value="Okay">
+                        <button class="ms-2 btn btn-danger" onClick="closePopup(event)">Cancel</button>
+                    </div>
+                </center>
+            </p>
     
         </form>
 

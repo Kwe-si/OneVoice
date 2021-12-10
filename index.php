@@ -61,8 +61,6 @@ else {
 
     <?php }?>
 
-
-    <script src = "../javascript/email-validation.js"></script>
 </body>
 </html>
 

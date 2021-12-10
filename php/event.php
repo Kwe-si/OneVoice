@@ -41,6 +41,7 @@
     <div class="container mem">
         <div class="row">
             <!-- card for list of events -->
+            <!-- creating card for Aloud Mega Praise Event -->
             <div class="col-sm-4">
                 <div class="card">
                 <div class="card-body">

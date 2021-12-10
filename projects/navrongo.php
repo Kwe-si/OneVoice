@@ -6,7 +6,6 @@ require "../php/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -15,8 +14,7 @@ $theID = "";
 function delete($theID, $conn){
     // delete person
       $del="delete from `members` where `memID`='$theID'";
-      $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
+      $q=mysqli_query($conn,$del); 
 }
 
 //function to select and display members
@@ -28,7 +26,6 @@ function listing($conn){
     Inner Join DevelopmentProject as DP on DP.devID=DPM.devID
     where DP.projectName like '%Navrongo Project%'");
     $data=mysqli_fetch_all($navrongo,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }
     $data=listing($conn);       //data stores result of the query
@@ -49,8 +46,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT concat(P.fname, ' ', P.middlename, ' ', P.lname) as 'Fullname' from `person` as p where concat(P.fname, ' ', P.middlename, ' ', P.lname) LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2); 
     return $searchquery; 
 }
 
@@ -106,7 +102,7 @@ function selection($theword, $conn){
                 <th>Role of Project</th>
             </tr>
 
-            <!-- looping through rows with results of the query to display the status of dues of members -->
+            <!-- looping through rows with results of the query to display the details of the Navrongo Project -->
 
             <?php foreach($data as $q){ ?>
                 <tr>

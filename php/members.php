@@ -41,6 +41,8 @@
     <div class="container mem">
         <div class="row">
             <!-- card for list of members -->
+
+            <!-- creating card for details of members -->
             <div class="col-sm-4">
                 <div class="card">
                 <div class="card-body">

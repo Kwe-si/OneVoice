@@ -21,13 +21,14 @@ const onEdit = (e) => {
     });
 }
 
-
+//script to close popup
 const closePopup = (e) => {
     e.preventDefault();
     popup.classList.remove("popup-show");
     popupForm.reset();
 }
 
+//script to retreive form data
 const updateForm = (formData) => {
     console.log(formData);
     popupForm.fname.value = formData["fname"];

@@ -5,7 +5,7 @@ $mid = $_POST['ID'];
 
 
 function listing($conn,$mid){
-    $mem_details=mysqli_query($conn, "SELECT P.personID, M.memID, Ev.eventID, DP.devID, P.fname, P.middlename, P.lname, P.contact, P.nationality, P.residential_address, P.DOB, D.deptName, D.deptNum, DP.projectName,
+    $mem_details=mysqli_query($conn, "SELECT P.personID, M.memID, Ev.eventID, DP.devID, P.gender, P.fname, P.middlename, P.lname, P.contact, P.nationality, P.residential_address, P.DOB, D.deptName, D.deptNum, DP.projectName,
     DPM.projectrole, Ev.eventName, Evm.eventrole,
     case
     when D.deptname = 'Database' then 'Kweku Asante'
@@ -39,12 +39,11 @@ function listing($conn,$mid){
     Inner Join DevelopmentProject as DP on DP.devID=DPM.devID
     WHERE M.memID = '$mid'");
     $data=mysqli_fetch_all($mem_details,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 
 }
 
-// echo listing($conn,$pid);
+
 echo json_encode(listing($conn,$mid));
 
 

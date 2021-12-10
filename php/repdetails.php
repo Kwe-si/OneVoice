@@ -6,7 +6,6 @@ require __DIR__ ."/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -16,7 +15,6 @@ function delete($theID, $conn){
     // delete from dues in the database 
       $del="delete from `rep` where `repID`='$theID'";
       $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
 }
 
 //function to select and display attendance status of members
@@ -37,7 +35,6 @@ function listing($conn){
     Inner Join DepartmentPerson as Dep on Dep.deptpersonID=P.personID
     Inner Join Department as D on D.deptNum=Dep.deptNum");
     $data=mysqli_fetch_all($rep_details,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }
     $data=listing($conn);       //data stores result of the query
@@ -58,8 +55,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT concat(P.fname, ' ', P.lname) as 'Fullname' from `person` as p where concat(P.fname, ' ', P.lname) LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2);  
     return $searchquery; 
 }
 

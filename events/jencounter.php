@@ -6,7 +6,6 @@ require "../php/database_connection_test.php";
 $deleteresult ="";
 if(isset($_POST['Delete'])){
     $theID=$_POST['ID'];
-    echo $theID;
   $deleteresult =  delete($theID, $conn);
 
 }
@@ -15,8 +14,7 @@ $theID = "";
 function delete($theID, $conn){
     // delete person
       $del="delete from `members` where `memID`='$theID'";
-      $q=mysqli_query($conn,$del);
-      echo mysqli_error($conn); 
+      $q=mysqli_query($conn,$del); 
 }
 
 //function to select and display members
@@ -28,7 +26,6 @@ function listing($conn){
     Inner Join Eventss as Ev on Ev.eventID=EvM.eventID
     where Ev.eventName like '%Jesus Encounter%'");
     $data=mysqli_fetch_all($aloud,MYSQLI_ASSOC);
-    echo mysqli_error($conn);
     return $data;
 }
     $data=listing($conn);       //data stores result of the query
@@ -49,8 +46,7 @@ function reduceArray($array) {
 function selection($theword, $conn){    
     $theword =trim($theword);
     $sql2 = mysqli_query($conn, "SELECT concat(P.fname, ' ', P.middlename, ' ', P.lname) as 'Fullname' from `person` as p where concat(P.fname, ' ', P.middlename, ' ', P.lname) LIKE '%$theword%'");
-    $searchquery=mysqli_fetch_all($sql2);
-    echo mysqli_error($conn);  
+    $searchquery=mysqli_fetch_all($sql2);  
     return $searchquery; 
 }
 
